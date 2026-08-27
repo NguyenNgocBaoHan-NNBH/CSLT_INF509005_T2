@@ -29,12 +29,12 @@ namespace CSLT_INF509005_T2.session03
             //• Cộng thêm 8 % Thuế Giá trị gia tăng(VAT). 
             //• In hóa đơn chi tiết gồm: Số kWh tiêu thụ, Tiền điện chưa thuế, Tiền thuế VAT và Tổng tiền phải thanh toán(làm tròn đến hàng đơn vị decimal). 
 
-            Console.Write("Nhập chỉ số điện cũ (kWh):");
+            Console.Write("Nhập chỉ số điện cũ (kWh): ");
             float csd_cu = float.Parse(Console.ReadLine());
             float csd_moi;
             do
             {
-                Console.Write("Nhập chỉ số điện mới (kWh):");
+                Console.Write("Nhập chỉ số điện mới (kWh): ");
                 csd_moi = float.Parse(Console.ReadLine());
                 if (csd_moi >= csd_cu)
                     break;
@@ -45,45 +45,45 @@ namespace CSLT_INF509005_T2.session03
             //Tính lượng điện tiêu thụ trong tháng = Chỉ số mới - Chỉ số cũ.
             float tieuThu = csd_moi - csd_cu;
 
-            //Tính tiền điện
+            //Tính tiền điện theo các bậc giá chưa thuế
             decimal soKwh = (decimal)tieuThu;
             decimal tienDien = 0;
 
             if (soKwh > 300)
             {
-                tienDien += (soKwh - 300) * 3050m; // Bậc 5
-                tienDien += 100 * 2729m;           // Bậc 4
-                tienDien += 100 * 2167m;           // Bậc 3
-                tienDien += 50 * 1866m;            // Bậc 2
-                tienDien += 50 * 1806m;            // Bậc 1
+                tienDien += (soKwh - 300) * 3050m; 
+                tienDien += 100 * 2729m;           
+                tienDien += 100 * 2167m;           
+                tienDien += 50 * 1866m;            
+                tienDien += 50 * 1806m;            
             }
             else if (soKwh > 200)
             {
-                tienDien += (soKwh - 200) * 2729m; // Bậc 4
-                tienDien += 100 * 2167m;           // Bậc 3
-                tienDien += 50 * 1866m;            // Bậc 2
-                tienDien += 50 * 1806m;            // Bậc 1
+                tienDien += (soKwh - 200) * 2729m; 
+                tienDien += 100 * 2167m;           
+                tienDien += 50 * 1866m;            
+                tienDien += 50 * 1806m;            
             }
             else if (soKwh > 100)
             {
-                tienDien += (soKwh - 100) * 2167m; // Bậc 3
-                tienDien += 50 * 1866m;            // Bậc 2
-                tienDien += 50 * 1806m;            // Bậc 1
+                tienDien += (soKwh - 100) * 2167m; 
+                tienDien += 50 * 1866m;            
+                tienDien += 50 * 1806m;            
             }
             else if (soKwh > 50)
             {
-                tienDien += (soKwh - 50) * 1866m;  // Bậc 2
-                tienDien += 50 * 1806m;            // Bậc 1
+                tienDien += (soKwh - 50) * 1866m;  
+                tienDien += 50 * 1806m;            
             }
             else
             {
-                tienDien += soKwh * 1806m;         // Bậc 1
+                tienDien += soKwh * 1806m;         
             }
 
             //Thuế VAT
             decimal vat = tienDien * (decimal)0.08f;
 
-            //làm tròn đến hàng đơn vị trước khi định dạng :C
+            //Làm tròn đến hàng đơn vị 
             tienDien = Math.Round(tienDien, 0);
             vat = Math.Round(vat, 0);
         
@@ -112,7 +112,6 @@ namespace CSLT_INF509005_T2.session03
             //• Tính dải cân nặng lý tưởng cho chiều cao đó(Cân nặng tối thiểu = 18.5 * Chiều cao^2; Cân nặng tối đa = 22.9 * Chiều cao ^ 2).
             //• Xuất ra chỉ số BMI(lấy 2 chữ số thập phân), phân loại và khoảng cân nặng lý tưởng.
 
-            // Chiều cao > 0
             float chieuCao;
             do
             {
@@ -124,7 +123,6 @@ namespace CSLT_INF509005_T2.session03
                     Console.WriteLine("\t*** Chiều cao phải lớn hơn 0.");
             } while (true);
 
-            // Cân nặng > 0
             float canNang;
             do
             {
@@ -136,10 +134,8 @@ namespace CSLT_INF509005_T2.session03
                     Console.WriteLine("\t*** Cân nặng phải lớn hơn 0.");
             } while (true);
 
-            // Tính chỉ số BMI = Cân nặng / (Chiều cao ^ 2)
             float bmi = canNang / (float)Math.Pow(chieuCao, 2);
 
-            // Phân loại tình trạng sức khỏe dựa trên BMI
             string tinhTrang = "";
             if (bmi < 18.5f)
             {
@@ -158,7 +154,6 @@ namespace CSLT_INF509005_T2.session03
                 tinhTrang = "Béo phì";
             }
 
-            // Tính dải cân nặng lý tưởng cho chiều cao tương ứng
             float canNangToiThieu = 18.5f * (float)Math.Pow(chieuCao, 2);
             float canNangToiDa = 22.9f * (float)Math.Pow(chieuCao, 2);
 
@@ -200,18 +195,15 @@ namespace CSLT_INF509005_T2.session03
                 Console.Write("Chọn ngoại tệ (1-USD, 2-EUR, 3-JPY, 4-GBP): ");
                 choice = int.Parse(Console.ReadLine());
 
-                // Sử dụng Enum để kiểm tra tính hợp lệ
                 if (Enum.IsDefined(typeof(CurrencyType), choice))
                     break;
                 else
                     Console.WriteLine("\t*** Lựa chọn không hợp lệ. Vui lòng chọn từ 1 đến 4.");
             } while (true);
 
-            // Khai báo tỷ giá cố định dạng số thực/nguyên ban đầu 
             float exchangeRate = 0f;
             string currencyName = "";
 
-            // Ép kiểu choice về enum CurrencyType để dùng trong switch-case
             CurrencyType selectedCurrency = (CurrencyType)choice;
 
                 switch (selectedCurrency)
@@ -234,14 +226,14 @@ namespace CSLT_INF509005_T2.session03
                         break;
                 }
 
-            // Tính phí dịch vụ quy đổi là 0.5% trên tổng số tiền VNĐ và ép kiểu sang (decimal) giống bài tiền điện
+            // Tính phí dịch vụ quy đổi là 0.5% trên tổng số tiền VNĐ 
             decimal serviceFee = (decimal)(totalVnd * 0.005m);
 
             // Tính số tiền VNĐ thực tế sau khi trừ phí
             decimal netVnd = totalVnd - serviceFee;
 
-            // Quy đổi ra ngoại tệ tương ứng và ép kiểu sang decimal
-            decimal foreignAmount = (decimal)((float)netVnd / exchangeRate); //cast
+            // Quy đổi ra ngoại tệ tương ứng 
+            decimal foreignAmount = (decimal)((float)netVnd / exchangeRate); 
 
             Console.WriteLine($"\nPhí dịch vụ (0.5%): {serviceFee:#,##0} VNĐ");
             Console.WriteLine($"Số tiền VNĐ tính đổi: {netVnd:#,##0} VNĐ");
@@ -283,7 +275,7 @@ namespace CSLT_INF509005_T2.session03
                 }
                 else
                 {
-                    Console.WriteLine("\t*** Ngày sinh không hợp lệ hoặc sai định dạng dd/MM/yyyy. Vui lòng nhập lại.");
+                    Console.WriteLine("\t*** Ngày sinh không hợp lệ. Vui lòng nhập lại.");
                 }
             } while (true);
 
@@ -293,10 +285,9 @@ namespace CSLT_INF509005_T2.session03
             int tuoi = ngayHienTaiHethong.Year - ngaySinh.Year;
             if (ngayHienTaiHethong < ngaySinh.AddYears(tuoi))
             {
-                tuoi--; // Giảm đi 1 tuổi nếu năm nay chưa đến ngày sinh nhật
+                tuoi--; 
             }
 
-            // Chênh lệch giữa 2 DateTime trả về một đối tượng TimeSpan. Dùng thuộc tính TotalDays của TimeSpan.
             TimeSpan chenhLechDaSong = ngayHienTaiHethong - ngaySinh;
             float tongSoNgayDaSong = (float)chenhLechDaSong.TotalDays;
 
@@ -311,8 +302,6 @@ namespace CSLT_INF509005_T2.session03
             TimeSpan chenhLechDenSinhNhat = sinhNhatTiepTheo - ngayHienTaiHethong;
             float soNgayConLai = (float)chenhLechDenSinhNhat.TotalDays;
 
-            // Áp dụng cách tính tiền và ép kiểu decimal giống ảnh hướng dẫn mới của thầy:
-            // Giả sử có một quy đổi vui: quy đổi số ngày đã sống thành giá trị quy đổi nào đó (hoặc giữ nguyên định dạng số)
             decimal ngayDaSongDecimal = (decimal)(tongSoNgayDaSong);//cast
             decimal ngayConLaiDecimal = (decimal)(soNgayConLai);//cast
 
@@ -381,10 +370,8 @@ namespace CSLT_INF509005_T2.session03
 
             int tong_tc = tc_cs + tc_toan + tc_ta;
 
-            // Tính điểm trung bình trọng số (Hệ 10)
             float score_avg = (diem_cs * tc_cs + diem_toan * tc_toan + diem_ta * tc_ta) / tong_tc;
 
-            // Quy đổi kết quả dựa trên các khoảng điểm của đề bài
             string diem_chu;
             float thang_4;
             string xep_loai;
@@ -420,8 +407,7 @@ namespace CSLT_INF509005_T2.session03
                 xep_loai = "Kém (Trượt)";
             }
 
-            // Áp dụng kỹ thuật ép kiểu decimal giống thầy hướng dẫn bài tiền điện
-            decimal gpa_thang_4 = (decimal)thang_4; //cast
+            decimal gpa_thang_4 = (decimal)thang_4; 
 
             Console.WriteLine($"\nĐiểm TB Thang 10: {score_avg:F2}");
             Console.WriteLine($"Điểm Chữ Quy Đổi: {diem_chu}");
@@ -444,20 +430,18 @@ namespace CSLT_INF509005_T2.session03
             //• Tạo Username không dấu theo quy tắc: ten.hovatenm. (Ví dụ: an.nguyenvan).
             //• Tạo Email công ty: username + "@company.edu.vn".
 
-            // SỬA LỖI CHÍNH: Cấu hình Console hiển thị và nhập được tiếng Việt Unicode
-
             Console.Write("Nhập họ tên thô: ");
             string input = Console.ReadLine();
 
             if (string.IsNullOrWhiteSpace(input)) return;
 
-            // 1. Chuẩn hóa khoảng trắng thừa
+            // Loại khoảng trắng thừa
             input = Regex.Replace(input.Trim(), @"\s+", " ");
 
-            // 2. Tách các từ trong họ tên
+            // Tách các từ trong họ tên
             string[] words = input.Split(' ');
 
-            // 3. Viết hoa chữ cái đầu của từng từ (ví dụ: tRẦN -> Trần)
+            // Viết hoa chữ cái đầu của từng từ 
             for (int i = 0; i < words.Length; i++)
             {
                 if (words[i].Length > 0)
@@ -468,7 +452,7 @@ namespace CSLT_INF509005_T2.session03
 
             string hoTenChuanHoa = string.Join(" ", words);
 
-            // 4. Tách Họ, Tên đệm, Tên
+            // Tách Họ, Tên đệm, Tên
             string ho = words[0];
             string ten = words[words.Length - 1];
             string tenDem = "";
@@ -477,7 +461,7 @@ namespace CSLT_INF509005_T2.session03
                 tenDem = string.Join(" ", words, 1, words.Length - 2);
             }
 
-            // 5. Tạo Username và Email (Chuyển sang dạng không dấu, viết thường)
+            // Tạo Username và Email 
             string tenKhongDau = LoaiBoDauTiengViet(ten).ToLower();
 
             string hoTenDemKhongDau = "";
@@ -496,8 +480,6 @@ namespace CSLT_INF509005_T2.session03
 
             Console.ReadLine();
         }
-
-        // Hàm loại bỏ hoàn toàn dấu tiếng Việt sử dụng mã hóa an toàn, bất chấp định dạng file nguồn
         static string LoaiBoDauTiengViet(string text)
         {
             if (string.IsNullOrEmpty(text)) return text;
@@ -566,13 +548,13 @@ namespace CSLT_INF509005_T2.session03
                     Console.WriteLine("\t*** Số người đi phải lớn hơn 0.");
             } while (true);
 
-            // Tính tổng số lít xăng cần dùng
+            // Tính tổng số lít xăng 
             double totalFuel = (distance / 100.0) * fuelConsumptionRate;
 
-            // Tính tổng chi phí tiền xăng
+            // Tính tổng tiền xăng
             decimal totalCost = (decimal)(totalFuel * (double)fuelPrice); //cast
 
-            // Tính số tiền mỗi người phải chi trả và làm tròn
+            // Tính số tiền mỗi người phải chi trả 
             decimal costPerPerson = totalCost / number_of_people;
             decimal costPerPersonRounded = Math.Ceiling(costPerPerson / 1000m) * 1000m;
 
@@ -597,11 +579,7 @@ namespace CSLT_INF509005_T2.session03
             //• 3.Thời điểm xác thực không vượt quá 5 phút so với CreationTime.
             //• In kết quả xác minh: THÀNH CÔNG hoặc LỖI CỤ THỂ(Mã sai / Hết hạn OTP / Định dạng không hợp lệ).
 
-            // 1. Khởi tạo dữ liệu hệ thống dựa trên yêu cầu đề bài
             string correctOtp = "839201";
-
-            // 2. NHẬN DỮ LIỆU ĐẦU VÀO (INPUT)
-            Console.WriteLine("--- INPUT ---");
 
             string inputOtp;
             do
@@ -625,9 +603,8 @@ namespace CSLT_INF509005_T2.session03
             do
             {
                 Console.Write("Thời gian trôi qua: ");
-                string inputTime = Console.ReadLine(); // Người dùng nhập: "2 phút 15 giây"
+                string inputTime = Console.ReadLine(); 
 
-                // Tách chuỗi để lấy số phút và số giây
                 string[] parts = inputTime.Split(' ');
 
                 if (parts.Length >= 4 && int.TryParse(parts[0], out minutes) && int.TryParse(parts[2], out seconds))
@@ -640,11 +617,7 @@ namespace CSLT_INF509005_T2.session03
                 Console.WriteLine("\t*** Định dạng không hợp lệ. Vui lòng nhập đúng mẫu (Ví dụ: 2 phút 15 giây).");
             } while (true);
 
-
-            // 3. XỬ LÝ VÀ HIỂN THỊ KẾT QUẢ ĐẦU RA (OUTPUT)
-            Console.WriteLine("--- OUTPUT ---");
-
-            // Kiểm tra điều kiện mã đúng và thời gian trong giới hạn 5 phút (300 giây)
+            // Kiểm tra điều kiện
             int totalSecondsElapsed = (minutes * 60) + seconds;
 
             if (inputOtp != correctOtp)
@@ -657,7 +630,6 @@ namespace CSLT_INF509005_T2.session03
             }
             else
             {
-                // In ra chính xác theo mẫu: THÀNH CÔNG - Giao dịch đã được phê duyệt.
                 Console.WriteLine("Trạng thái xác thực: THÀNH CÔNG - Giao dịch đã được phê duyệt.");
             }
 
@@ -681,17 +653,12 @@ namespace CSLT_INF509005_T2.session03
             //• Tính Lương Net thực nhận = Gross - Tổng bảo hiểm -Thuế TNCN
             // Nhập lương Gross ban đầu bằng kiểu float
 
-            // 1. Nhập lương Gross 
             Console.Write("Lương Gross: ");
-            // 1. Đọc dữ liệu dưới dạng chuỗi (string)
             string inputGross = Console.ReadLine();
             float gross_float = float.Parse(inputGross);
-            // 2. Di chuyển con trỏ ngược lên dòng vừa nhập
             Console.SetCursorPosition(13, Console.CursorTop - 1);
-            // 3. Ép kiểu tạm thời sang decimal để định dạng :N0 xuất ra dấu phẩy, kèm chữ VNĐ
             Console.WriteLine($"{((decimal)gross_float):N0} VNĐ");
 
-            // 2. Nhập Số người phụ thuộc (Bắt buộc dùng kiểu INT theo đúng đề bài)
             int soNguoiPhuThuoc;
             do
             {
@@ -705,26 +672,23 @@ namespace CSLT_INF509005_T2.session03
 
             } while (true);
 
-            // Ép kiểu (decimal) từ biến float sang tính toán tài chính giống thầy //cast
             decimal bhxh = (decimal)(gross_float * 0.08f);
             decimal bhyt = (decimal)(gross_float * 0.015f);
             decimal bhtn = (decimal)(gross_float * 0.01f);
             decimal tongBaoHiem = bhxh + bhyt + bhtn;
 
-            // Tính các khoản giảm trừ gia cảnh (Số người phụ thuộc dùng toán tử nhân với kiểu int)
             decimal giamTruBanThan = 11000000m;
             decimal giamTruPhuThuoc = soNguoiPhuThuoc * 4400000m;
 
-            // Thu nhập chịu thuế = Gross - Tổng bảo hiểm - Mức bản thân - Người phụ thuộc
+            // Thu nhập chịu thuế 
             decimal thuNhapChiuThue = (decimal)gross_float - tongBaoHiem - giamTruBanThan - giamTruPhuThuoc;
 
-            // Kiểm tra kỹ điều kiện thu nhập chịu thuế không được âm
             if (thuNhapChiuThue <= 0)
             {
                 thuNhapChiuThue = 0;
             }
 
-            // Tính thuế TNCN theo biểu thuế lũy tiến từng phần của đề bài
+            // Tính thuế TNCN 
             decimal thueTNCN = 0;
             if (thuNhapChiuThue <= 5000000m)
             {
@@ -796,23 +760,20 @@ namespace CSLT_INF509005_T2.session03
             Console.Write("Nhập mã sản phẩm: ");
             string productId = Console.ReadLine();
 
-            // Nhập số lượng tồn kho (Xử lý chuỗi rỗng hoặc chữ thành null)
+            // Nhập số lượng tồn kho 
             Console.Write("Nhập số lượng tồn kho (bấm Enter để bỏ trống/null): ");
             string inputQuantity = Console.ReadLine();
             int? quantity = string.IsNullOrEmpty(inputQuantity) ? null : int.Parse(inputQuantity);
 
-            // Đặt ngưỡng tối thiểu mặc định cố định theo đề bài
             int minThreshold = 10;
 
-            // Nhập ngày restock (Nếu bấm Enter thì coi như chưa có lịch và gán null)
+            // Nhập ngày restock 
             Console.Write("Nhập ngày restock (dd/mm/yyyy - bấm Enter để bỏ trống): ");
             string inputDate = Console.ReadLine();
             DateTime? restockDate = string.IsNullOrEmpty(inputDate) ? null : DateTime.ParseExact(inputDate, "dd/MM/yyyy", null);
 
-            // Sử dụng toán tử ?? để gán số lượng hiển thị mặc định = 0 nếu quantity bị null
             int displayQuantity = quantity ?? 0;
 
-            // Đánh giá trạng thái kho
             StockStatus status;
             if (quantity == null || quantity == 0)
             {
@@ -827,7 +788,6 @@ namespace CSLT_INF509005_T2.session03
                 status = StockStatus.InStock;
             }
 
-            // Sử dụng toán tử ?. và ?? để định dạng ngày hoặc thông báo
             string restockDisplay = restockDate?.ToString("dd/MM/yyyy") ?? "Chưa có lịch nhập hàng";
 
             Console.WriteLine($"Sản phẩm: {productName} (Mã: {productId})");
@@ -856,15 +816,15 @@ namespace CSLT_INF509005_T2.session03
             //• (Lưu ý: Công thức lũy thừa cần đổi P sang double để dùng Math.Pow, sau đó ép kiểu kết quả về decimal).
             //• In kết quả so sánh chênh lệch giữa Lãi kép và Lãi đơn.
 
-            // 1. Nhập Số tiền gửi
+            // Nhập Số tiền gửi
             Console.Write("Số tiền gửi: ");
             decimal P = decimal.Parse(ReadNumberWithSuffix(" VNĐ"));
 
-            // 2. Nhập Lãi suất năm
+            // Nhập Lãi suất năm
             Console.Write("Lãi suất năm: ");
             double r = double.Parse(ReadNumberWithSuffix(" %/năm"));
 
-            // 3. Nhập Thời gian gửi
+            // Nhập Thời gian gửi
             Console.Write("Thời gian gửi: ");
             int n = int.Parse(ReadNumberWithSuffix(" tháng"));
 
@@ -879,8 +839,6 @@ namespace CSLT_INF509005_T2.session03
 
             // Tính chênh lệch
             decimal difference = compoundInterest - simpleInterest;
-
-            // In kết quả theo đúng cấu trúc chữ của đề bài mẫu
             Console.WriteLine($"Tổng tiền lãi (Lãi đơn): {simpleInterest:N0} VNĐ");
             Console.WriteLine($"Tổng tiền lãi (Lãi kép): {compoundInterest:N0} VNĐ");
             Console.WriteLine($"Lợi nhuận chênh lệch: {difference:N0} VNĐ (Lãi kép tối ưu hơn)");
@@ -888,45 +846,37 @@ namespace CSLT_INF509005_T2.session03
             Console.ReadLine();
         }
 
-        // Hàm xử lý nhập số giữ nguyên tiền tố/hậu tố phía sau không bị mất chữ
         static string ReadNumberWithSuffix(string suffix)
         {
             string numberStr = "";
             int startX = Console.CursorLeft;
             int startY = Console.CursorTop;
 
-            // In chữ đơn vị ra trước làm nền
             Console.Write(suffix);
 
             while (true)
             {
-                // Đưa con trỏ về vị trí ngay sau chuỗi số vừa gõ
                 Console.SetCursorPosition(startX + numberStr.Length, startY);
 
-                // Đọc từng phím nhấn từ bàn phím
                 ConsoleKeyInfo keyInfo = Console.ReadKey(true);
 
-                // Nếu nhấn Enter -> Hoàn thành nhập
                 if (keyInfo.Key == ConsoleKey.Enter)
                 {
                     if (numberStr.Length > 0) break;
-                    else continue; // Không cho nhấn Enter khi chưa gõ gì
+                    else continue; 
                 }
 
-                // Nếu nhấn Backspace -> Xóa bớt số
                 if (keyInfo.Key == ConsoleKey.Backspace)
                 {
                     if (numberStr.Length > 0)
                     {
                         numberStr = numberStr.Substring(0, numberStr.Length - 1);
-                        // Xóa toàn bộ dòng hiện tại để vẽ lại tránh lem chữ
                         Console.SetCursorPosition(startX, startY);
                         Console.Write(new string(' ', numberStr.Length + suffix.Length + 5));
                         Console.SetCursorPosition(startX, startY);
                         Console.Write(numberStr + suffix);
                     }
                 }
-                // Nhận ký tự số (0-9) và dấu chấm thập phân (cho phần trăm)
                 else if (char.IsDigit(keyInfo.KeyChar) || keyInfo.KeyChar == '.')
                 {
                     numberStr += keyInfo.KeyChar;
@@ -935,7 +885,6 @@ namespace CSLT_INF509005_T2.session03
                 }
             }
 
-            // Xuống dòng sau khi hoàn thành một lượt nhập
             Console.WriteLine();
             return numberStr;
         }
@@ -959,20 +908,12 @@ namespace CSLT_INF509005_T2.session03
             Console.Write("Khóa dịch chuyển (Shift Key k): ");
             int k = int.Parse(Console.ReadLine());
 
-            // Gọi hàm cục bộ để mã hóa
             string encryptedText = EncryptCaesar(originalText, k);
             Console.WriteLine($"\nVăn bản Mã hóa: {encryptedText}");
 
-            // Gọi hàm cục bộ để giải mã
             string decryptedText = DecryptCaesar(encryptedText, k);
             Console.WriteLine($"Văn bản Giải mã: {decryptedText}");
 
-
-            // ==========================================
-            // HÀM CỤC BỘ (LOCAL FUNCTIONS) ĐẶT Ở CUỐI HÀM
-            // ==========================================
-
-            // Hàm mã hóa Caesar cục bộ
             string EncryptCaesar(string input, int key)
             {
                 char[] result = input.ToCharArray();
@@ -998,7 +939,6 @@ namespace CSLT_INF509005_T2.session03
                 return new string(result);
             }
 
-            // Hàm giải mã Caesar cục bộ
             string DecryptCaesar(string input, int key)
             {
                 char[] result = input.ToCharArray();
@@ -1022,6 +962,7 @@ namespace CSLT_INF509005_T2.session03
                     }
                 }
                 return new string(result);
+
             }
         }
 
@@ -1042,11 +983,10 @@ namespace CSLT_INF509005_T2.session03
             //• + Truck: 50,000 VNĐ cho 2 giờ đầu; Mỗi giờ tiếp theo +25,000 VNĐ/giờ.
             //• Phụ phí qua đêm: Nếu thời gian đỗ gửi qua thời điểm 00:00 đêm, cộng thêm phụ phí 30,000 VNĐ.
             //• Xuất hóa đơn gửi xe chi tiết.
-      
-            Console.Write("Loại xe: ");
+
+            Console.Write("\nLoại xe: ");
             string vehicleInput = Console.ReadLine()?.Trim();
 
-            // Tự động nhận diện loại xe (chấp nhận cả "Car", "Car (Ô tô)", v.v.)
             VehicleType vehicle = VehicleType.Car;
             if (vehicleInput != null)
             {
@@ -1063,13 +1003,11 @@ namespace CSLT_INF509005_T2.session03
             Console.Write("Giờ ra: ");
             DateTime checkOut = DateTime.ParseExact(Console.ReadLine(), format, CultureInfo.InvariantCulture);
 
-            // 2. Tính toán thời gian bằng TimeSpan.TotalHours và làm tròn lên bằng Math.Ceiling
             double actualHours = (checkOut - checkIn).TotalHours;
             int totalHours = (int)Math.Ceiling(actualHours);
 
             Console.WriteLine($"\nTổng thời gian đỗ: {actualHours:F2} giờ -> Tính phí: {totalHours} giờ");
 
-            // 3. Khai báo giá tiền dạng decimal theo yêu cầu kiến thức trọng tâm
             decimal basePrice = 0;
             decimal extraPricePerHour = 0;
 
@@ -1089,12 +1027,12 @@ namespace CSLT_INF509005_T2.session03
                     break;
             }
 
-            // Tính số giờ tiếp theo (nếu tổng số giờ lớn hơn 2)
+            // Tính số giờ tiếp theo 
             int nextHours = totalHours > 2 ? totalHours - 2 : 0;
             decimal baseFee = basePrice;
             decimal extraFee = nextHours * extraPricePerHour;
 
-            // Tính phụ phí qua đêm (nếu ngày ra lớn hơn ngày vào)
+            // Tính phụ phí qua đêm 
             decimal overnightFee = 0;
             if (checkOut.Date > checkIn.Date)
             {
@@ -1103,7 +1041,6 @@ namespace CSLT_INF509005_T2.session03
 
             decimal totalFee = baseFee + extraFee + overnightFee;
 
-            // Xuất chi tiết hóa đơn theo định dạng ví dụ mẫu
             Console.WriteLine($"Phí 2 giờ đầu: {baseFee:N0} VNĐ");
             Console.WriteLine($"Phí {nextHours} giờ tiếp theo: {extraFee:N0} VNĐ ({extraPricePerHour:N0} x {nextHours})");
 
@@ -1131,16 +1068,15 @@ namespace CSLT_INF509005_T2.session03
             int numberResult;
             string input;
 
-            // Vòng lặp yêu cầu nhập lại nếu chuỗi không phải số nguyên hợp lệ
             while (true)
             {
                 Console.Write("Nhập chuỗi số: ");
                 input = Console.ReadLine();
 
-                // 1. Sử dụng int.TryParse để kiểm tra xem chuỗi có phải là số nguyên hợp lệ hay không
+                // Kiểm tra xem chuỗi có phải là số nguyên hợp lệ 
                 if (int.TryParse(input, out numberResult))
                 {
-                    break; // Hợp lệ thì thoát vòng lặp
+                    break; 
                 }
                 else
                 {
@@ -1148,10 +1084,9 @@ namespace CSLT_INF509005_T2.session03
                 }
             }
 
-            Console.WriteLine("--- OUTPUT ---");
-            Console.WriteLine($"Kiểm tra Parse: Thành công! Giá trị int = {numberResult}");
+            Console.WriteLine($"\nKiểm tra Parse: Thành công! Giá trị int = {{numberResult}}");
 
-            // 2. Kiểm tra xem giá trị đó có thể lưu trữ vừa trong kiểu dữ liệu nhỏ hơn (byte, short)
+            // Kiểm tra giá trị đó có thể lưu trữ vừa trong kiểu dữ liệu nhỏ hơn 
             if (numberResult >= 0 && numberResult <= 255)
             {
                 Console.WriteLine("Phù hợp kiểu byte: Có (Vừa vặn trong dải 0-255)");
@@ -1165,8 +1100,8 @@ namespace CSLT_INF509005_T2.session03
                 Console.WriteLine("Phù hợp kiểu byte/short: Không (Vượt quá dải lưu trữ của byte và short)");
             }
 
-            // 3. Thực hiện tính Tổng các chữ số cấu thành nên số nguyên đó
-            int temp = Math.Abs(numberResult); // Lấy giá trị tuyệt đối để xử lý cả số âm
+            // Tính Tổng các chữ số cấu thành nên số nguyên đó
+            int temp = Math.Abs(numberResult); 
             int sum = 0;
             string digitsStr = "";
 
@@ -1180,12 +1115,11 @@ namespace CSLT_INF509005_T2.session03
             if (numberResult == 0) { sum = 0; digitsStr = "0"; }
             Console.WriteLine($"Tổng các chữ số: {digitsStr} = {sum}");
 
-            // 4. Thực hiện đoạn mã thử nghiệm tính tích lũy lũy thừa/nhân số đó trong khối checked { ... }
+            // Thực hiện đoạn mã thử nghiệm tính tích lũy lũy thừa/nhân số đó 
             try
             {
                 checked
                 {
-                    // Thử nghiệm nhân tích lũy với chính nó để kiểm tra tràn số trong phạm vi int32
                     int overflowTest = numberResult * numberResult;
                     Console.WriteLine("Kiểm tra Tràn số: An toàn trong phạm vi int32.");
                 }
@@ -1220,19 +1154,16 @@ namespace CSLT_INF509005_T2.session03
             //• + Khuyến mãi Thứ 4 Vui Vẻ (Wednesday): Giảm 20% cho tất cả khách hàng Adult.
             //• + Phụ thu Cuối tuần (Friday, Saturday, Sunday): Cộng thêm 20,000 VNĐ/vé.
             //• In vé xem phim chi tiết gồm: Giá gốc, Khoản giảm giá, Phụ thu cuối tuần và Giá vé thanh toán cuối cùng.
-            // 1. Cấu hình mặc định
+           
             decimal basePrice = 100000m;
             decimal discount = 0m;
             decimal surcharge = 0m;
-            string discountLabel = "Khoản giảm giá"; // Nhãn mặc định để in ra
+            string discountLabel = "Khoản giảm giá"; 
 
-            // 2. Nhập thông tin chính xác theo định dạng mẫu Input
             Console.Write("Khách hàng: ");
-            string customerInput = Console.ReadLine(); // Ví dụ nhập: Student
-                                                       // Chuyển đổi từ chuỗi sang Enum (bỏ qua hoa thường)
+            string customerInput = Console.ReadLine(); 
             CustomerType customer = (CustomerType)Enum.Parse(typeof(CustomerType), customerInput, true);
 
-            // TỐI ƯU: Chỉ hỏi thẻ SV nếu khách hàng nhập vào là Student
             bool hasStudentCard = false;
             if (customer == CustomerType.Student)
             {
@@ -1244,7 +1175,6 @@ namespace CSLT_INF509005_T2.session03
             string dayInput = Console.ReadLine();
             DayOfWeek day = (DayOfWeek)Enum.Parse(typeof(DayOfWeek), dayInput, true);
 
-            // --- Logic tính toán giữ nguyên theo đề bài ---
             if (customer == CustomerType.Child || customer == CustomerType.Senior)
             {
                 discount = basePrice * 0.50m;
