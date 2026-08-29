@@ -1207,7 +1207,7 @@ namespace CSLT_INF509005_T2.session03
             Console.ReadLine();
         }
 
-        public static void Main(string[] args)
+        public static void Main111(string[] args)
         {
             Console.OutputEncoding = Encoding.Unicode;
             Console.InputEncoding = Encoding.Unicode;

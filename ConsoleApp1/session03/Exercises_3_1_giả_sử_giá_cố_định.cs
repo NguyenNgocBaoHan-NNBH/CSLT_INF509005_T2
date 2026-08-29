@@ -6,7 +6,7 @@ namespace CSLT_INF509005_T2.session03
 {
     internal class Exercises_3_1_giả_sử_giá_cố_định
     {
-        public static void Main111(string[] args)
+        public static void Main1111(string[] args)
         {
             Console.OutputEncoding = Encoding.UTF8;
             //Bài 1: Tính Tiền Điện Sinh Hoạt Gia Đình Theo Bậc Thang(EVN)
