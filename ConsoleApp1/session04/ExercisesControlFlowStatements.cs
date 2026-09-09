@@ -15,7 +15,7 @@ namespace CSLT_INF509005_T2.session04
         static void Cau_1()
         {
             Console.Write("Enter an integer: ");
-            int number = Convert.ToInt32(Console.ReadLine());
+            int number = int.Parse(Console.ReadLine());
 
             if (number % 2 == 0)
             {
@@ -32,15 +32,15 @@ namespace CSLT_INF509005_T2.session04
         static void Cau_2()
         {
             Console.Write("\nEnter the first number: ");
-            double num1 = Convert.ToDouble(Console.ReadLine());
+            int num1 = int.Parse(Console.ReadLine());
 
             Console.Write("Enter the second number: ");
-            double num2 = Convert.ToDouble(Console.ReadLine());
+            int num2 = int.Parse(Console.ReadLine());
 
             Console.Write("Enter the third number: ");
-            double num3 = Convert.ToDouble(Console.ReadLine());
+            int num3 = int.Parse(Console.ReadLine());
 
-            double largest = num1;
+            int largest = num1;
 
             if (num2 > largest)
             {
@@ -97,10 +97,10 @@ namespace CSLT_INF509005_T2.session04
         {
             int x, y;
             Console.Write("\nNhập giá trị cho tọa độ X: ");
-            x = Convert.ToInt32(Console.ReadLine());
+            x = int.Parse(Console.ReadLine());
 
             Console.Write("Nhập giá trị cho tọa độ Y: ");
-            y = Convert.ToInt32(Console.ReadLine());
+            y = int.Parse(Console.ReadLine());
 
             if (x > 0 && y > 0)
             {

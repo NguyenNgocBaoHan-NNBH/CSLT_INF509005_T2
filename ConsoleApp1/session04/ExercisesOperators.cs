@@ -1,6 +1,7 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.Runtime.ConstrainedExecution;
+using System.Runtime.InteropServices;
 using System.Text;
 using static System.Runtime.InteropServices.JavaScript.JSType;
 
@@ -45,16 +46,16 @@ namespace CSLT_INF509005_T2.session04
         static void Bai_3()
         {
             Console.Write("\nNhập khoảng cách (mét): ");
-            float distance = Convert.ToSingle(Console.ReadLine());
+            float distance = float.Parse(Console.ReadLine());
 
             Console.Write("Nhập số giờ: ");
-            float hours = Convert.ToSingle(Console.ReadLine());
+            float hours = float.Parse(Console.ReadLine());
 
             Console.Write("Nhập số phút: ");
-            float minutes = Convert.ToSingle(Console.ReadLine());
+            float minutes = float.Parse(Console.ReadLine());
 
             Console.Write("Nhập số giây: ");
-            float seconds = Convert.ToSingle(Console.ReadLine());
+            float seconds = float.Parse(Console.ReadLine());
 
             float totalHours = hours + (minutes / 60.0f) + (seconds / 3600.0f);
 
@@ -76,7 +77,7 @@ namespace CSLT_INF509005_T2.session04
         static void Bai_4()
         {
             Console.Write("\nNhập bán kính của hình cầu (r): ");
-            double r = Convert.ToDouble(Console.ReadLine());
+            double r = double.Parse(Console.ReadLine());
 
             double surfaceArea = 4 * Math.PI * Math.Pow(r, 2);
 

@@ -81,7 +81,7 @@ namespace ConsoleApp1.session02
             Console.WriteLine();
 
             //10.to convert days to years, weeks and days
-            Console.Write("Enter total days: ");
+            Console.Write("Enter number of days: ");
             int totalDays = Convert.ToInt32(Console.ReadLine());
             int years = totalDays / 365;
             int weeks = (totalDays % 365) / 7;
