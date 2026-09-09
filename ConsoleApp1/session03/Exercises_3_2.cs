@@ -58,12 +58,8 @@ namespace CSLT_INF509005_T2.session03
             double surface = 4 * pi * Math.Pow(radius, 2);
             double volume = (4 / 3) * pi * Math.Pow(radius, 3);
 
-            // Ép định dạng "F2" (2 chữ số thập phân) và "F1" (1 chữ số thập phân)
-            string surfaceStr = surface.ToString("F2").Replace('.', ',');
-            string volumeStr = volume.ToString("F1").Replace('.', ',');
-
-            Console.WriteLine($"Surface: {surfaceStr}");
-            Console.WriteLine($"Volume: {volumeStr}");
+            Console.WriteLine($"Surface: {surface:F2}");
+            Console.WriteLine($"Volume: {volume:F2}");
 
             Console.ReadLine();
         }

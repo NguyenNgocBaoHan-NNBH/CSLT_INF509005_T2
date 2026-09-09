@@ -165,7 +165,7 @@ namespace CSLT_INF509005_T2.session03
         }
 
         enum CurrencyType
-        // 1. Khai báo enum CurrencyType (Bai_3)
+        //Khai báo enum CurrencyType (Bai_3)
         {
             USD = 1,
             EUR = 2,
@@ -302,8 +302,8 @@ namespace CSLT_INF509005_T2.session03
             TimeSpan chenhLechDenSinhNhat = sinhNhatTiepTheo - ngayHienTaiHethong;
             float soNgayConLai = (float)chenhLechDenSinhNhat.TotalDays;
 
-            decimal ngayDaSongDecimal = (decimal)(tongSoNgayDaSong);//cast
-            decimal ngayConLaiDecimal = (decimal)(soNgayConLai);//cast
+            decimal ngayDaSongDecimal = (decimal)(tongSoNgayDaSong);
+            decimal ngayConLaiDecimal = (decimal)(soNgayConLai);
 
             Console.WriteLine($"\nTuổi hiện tại: {tuoi} tuổi");
             Console.WriteLine($"Bạn đã sống tổng cộng: {ngayDaSongDecimal:N0} ngày ");

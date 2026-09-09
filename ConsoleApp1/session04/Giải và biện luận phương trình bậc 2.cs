@@ -49,7 +49,7 @@ namespace CSLT_INF509005_T2.session04
                         double delta = Math.Pow(b, 2) - 4 * a * c;
                         if (delta < 0)
                         {
-                            Console.WriteLine("Phương trình không có nghiệm thực vì delta<0");
+                            Console.WriteLine("Phương trình không có nghiệm thực");
                         }
                         else if (delta == 0)
                         {
