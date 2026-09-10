@@ -131,7 +131,7 @@ namespace CSLT_INF509005_T2.session04
                 Console.WriteLine($"Điểm tọa độ ({x},{y}) nằm trên trục hoành.");
             }
         }
-        public static void Main(string[] args)
+        public static void Main222(string[] args)
         {
             Console.OutputEncoding = Encoding.UTF8;
 
