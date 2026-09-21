@@ -200,7 +200,7 @@ namespace CSLT_INF509005_T2.session05
                 Console.WriteLine($"Số {so} KHÔNG là số nguyên tố");
         }
 
-        public static void Main(string[] args)
+        public static void Main33333(string[] args)
         {
             Console.OutputEncoding = Encoding.UTF8;
             
