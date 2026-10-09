@@ -170,7 +170,7 @@ namespace CSLT_INF509005_T2.session06
             return tu.Length;
         }
 
-        public static void Main(string[] args)
+        public static void Main44(string[] args)
         {
             // BÀI 1: Tinh tong hai so
             Console.Write("Nhap so thu nhat: ");

@@ -7,6 +7,7 @@ namespace CSLT_INF509005_T2.session07
     internal class Exercises
     {
         /// <summary>
+        /// PHAN 1
         /// Create a random integer values array, then create functions that:
         /// </summary>
         static int[] InitializingRandomArrray(int[] arr)
@@ -182,12 +183,13 @@ namespace CSLT_INF509005_T2.session07
                 finalResult[i] = result[i];
             }
             return finalResult;
-
         }
+
         ///<summary>
+        /// PHAN 2
         /// Create a C# program that
         /// </summary>
-        
+
         /// <summary>
         /// requests 10 integers from the user
         /// </summary>
@@ -231,6 +233,7 @@ namespace CSLT_INF509005_T2.session07
         }
 
         /// <summary>
+        /// PHAN 3
         /// Create a program with following functions
         /// </summary>
 
@@ -394,76 +397,109 @@ namespace CSLT_INF509005_T2.session07
         }
 
 
-        private static void Main(string[] args)
+        private static void Main5(string[] args)
         {
-            // Console.Write("Nhap so luong phan tu: "); int n = int.Parse(Console.ReadLine());
-            // int[] arr = new int[n];
-            // InitializingRandomArrray(arr);
-            // PrintArray(arr);
+            // PHAN 1
 
-            // Console.WriteLine($"The average of the array is {CalculateAverage(arr)}");
+            //Console.Write("Nhap so luong phan tu: "); int n = int.Parse(Console.ReadLine());
+            //int[] arr = new int[n];
+            //InitializingRandomArrray(arr);
+            //PrintArray(arr);
 
-            // Console.Write("Enter a value you want to check: "); int val = int.Parse(Console.ReadLine());
-            // if (ContainsValue(arr, val)) Console.WriteLine($"The array contains the value {val}");
-            // else Console.WriteLine($"The array DOES NOT contain the value {val}");
+            //-to calculate the average value of array elements.
+            //Console.WriteLine($"The average of the array is {CalculateAverage(arr)}");
 
-            // Console.Write("Enter a value you want to find index: "); int val = int.Parse(Console.ReadLine());
-            // if (FindingIndex(arr, val) == -1) Console.WriteLine($"The array DOES NOT contains the value {val}");
-            // else Console.WriteLine($"The index of value {val} in the array is index = {FindingIndex(arr, val)}");
+            //-to test if an array contains a specific value.
+            //Console.Write("Enter a value you want to check: ");
+            //int val = int.Parse(Console.ReadLine());
+            //if (ContainsValue(arr, val))
+            //    Console.WriteLine($"The array contains the value {val}");
+            //else Console.WriteLine($"The array DOES NOT contain the value {val}");
 
-            // Console.Write("Enter a value you want to remove: "); int val = int.Parse(Console.ReadLine());
-            // int[] arr = RemoveArrayElement(arr, val);
-            // PrintArray(arr);
+            //-to find the index of an array element.
+            //Console.Write("Enter a value you want to find index: ");
+            //int val = int.Parse(Console.ReadLine());
+            //if (FindingIndex(arr, val) == -1)
+            //    Console.WriteLine($"The array DOES NOT contains the value {val}");
+            //else Console.WriteLine($"The index of value {val} in the array is index = {FindingIndex(arr, val)}");
 
-            // ReverseArray(arr);
-            // PrintArray(arr);
+            //-to remove a specific element from an array.
+            //Console.Write("Enter a value you want to remove: "); int val = int.Parse(Console.ReadLine());
+            //int[] arr = RemoveArrayElement(arr, val);
+            //PrintArray(arr);
 
-            // FindDuplicateValues(arr);
+            //-to find the maximum and minimum value of an array.
+            //int[] maxMin = FindingMaxMin(arr);
+            //Console.WriteLine($"The maximum value is: {maxMin[0]}");
+            //Console.WriteLine($"The minimum value is: {maxMin[1]}");
 
-            // Console.WriteLine("Duplicates values have been removed!");
-            // PrintArray(RemoveDuplicates(arr));
+            //-to reverse an array of integer values.
+            //ReverseArray(arr);
+            //PrintArray(arr);
 
-            // int[] arr = new int[10];
-            // InputArrayWith10Elements(arr);
-            // Console.WriteLine("Before sorting:");
+            //-to find duplicate values in an array of values.
+            //FindDuplicateValues(arr);
 
-            // BubbleSort(arr);
-            // Console.WriteLine("After sorting:");
-            // PrintArray(arr);
+            //-to remove duplicate elements from an array.
+            //Console.WriteLine("Duplicates values have been removed!");
+            //PrintArray(RemoveDuplicates(arr));
 
-            // Console.Write("Enter a sentence: "); string sentence = Console.ReadLine();
-            // Console.Write("Enter a word: "); string word = Console.ReadLine();
+            // PHAN 2
 
-            // if (LinearSearch(sentence, word) == -1) Console.WriteLine($"The word '{word}' is not in the sentence");
-            // else Console.WriteLine($"The word '{word}' is found at the {LinearSearch(sentence, word)+1}th word");
+            //-requests 10 integers from the user and orders them by implementing the bubble sort algorithm.
+            //int[] arr = new int[10];
+            //InputArrayWith10Elements(arr);
+            //Console.WriteLine("Before sorting:");
 
-            //Console.Write("Enter row num: "); int row = int.Parse(Console.ReadLine());
-            //Console.Write("enter col num: "); int col = int.Parse(Console.ReadLine());
-            //int[,] matrix = new int[row, col];
+            //BubbleSort(arr);
+            //Console.WriteLine("After sorting:");
+            //PrintArray(arr);
 
-            //InitializingRandomMatrix(matrix);
-            //PrintMatrix(matrix);
-            //Console.WriteLine();
+            //-Request a sentence from the user, then ask to enter a word. Search if the word appears in the phrase using the linear search algorithm.
+            //Console.Write("Enter a sentence: "); string sentence = Console.ReadLine();
+            //Console.Write("Enter a word: "); string word = Console.ReadLine();
 
-            //Console.Write("Enter ith row: "); int rowIndex = int.Parse(Console.ReadLine());
-            //PrintRow(matrix, rowIndex);
-            //Console.WriteLine($"Min of {rowIndex}th row is {FindMinOfRow(matrix, rowIndex)}");
-            //Console.WriteLine();
+            //if (LinearSearch(sentence, word) == -1) Console.WriteLine($"The word '{word}' is not in the sentence");
+            //else Console.WriteLine($"The word '{word}' is found at the {LinearSearch(sentence, word) + 1}th word");
 
-            //Console.Write("Enter jth col: "); int colIndex = int.Parse(Console.ReadLine());
-            //PrintCol(matrix, colIndex);
-            //Console.WriteLine($"Min of {colIndex}th col is {FindMinOfCol(matrix, colIndex)}");
-            //Console.WriteLine();
+            // PHAN 3
 
-            //Console.WriteLine($"Max of matrix X is {FindMax(matrix)}");
-            //Console.WriteLine();
+            Console.Write("Enter row num: "); int row = int.Parse(Console.ReadLine());
+            Console.Write("enter col num: "); int col = int.Parse(Console.ReadLine());
+            int[,] matrix = new int[row, col];
 
-            //Console.WriteLine("Transposed matrix:");
-            //int[,] transpose = TransposeMatrix(matrix);
-            //PrintMatrix(transpose);
-            //Console.WriteLine();
+            //-Create an integer matrix N x M(N, M was prompted from user) randomly.
+            InitializingRandomMatrix(matrix);
 
-            //PrintDiagonals(matrix);
+            //-Print the matrix.
+            PrintMatrix(matrix);
+            Console.WriteLine();
+
+            //-Print the ith row / column. (i was prompted from user)
+            Console.Write("Enter ith row: "); int rowIndex = int.Parse(Console.ReadLine());
+            PrintRow(matrix, rowIndex);
+            Console.WriteLine($"Min of {rowIndex}th row is {FindMinOfRow(matrix, rowIndex)}");
+            Console.WriteLine();
+
+            Console.Write("Enter jth col: "); int colIndex = int.Parse(Console.ReadLine());
+            PrintCol(matrix, colIndex);
+
+            //-Find the min value of ith row/col of the matrix.
+            Console.WriteLine($"Min of {colIndex}th col is {FindMinOfCol(matrix, colIndex)}");
+            Console.WriteLine();
+
+            //-Find the max value of the matrix.
+            Console.WriteLine($"Max of matrix X is {FindMax(matrix)}");
+            Console.WriteLine();
+
+            //-Transpose the matrix.
+            Console.WriteLine("Transposed matrix:");
+            int[,] transpose = TransposeMatrix(matrix);
+            PrintMatrix(transpose);
+            Console.WriteLine();
+
+            //-Print the main/secondary diagonal values of the matrix.(square maxtrix)
+            PrintDiagonals(matrix);
         }
     }
 }
